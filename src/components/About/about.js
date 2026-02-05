@@ -75,7 +75,7 @@ const About = () => {
                   <i className="bi bi-file-earmark-pdf me-2"></i>
                   View Resume
                 </Button>
-                <Button href="#projects" className="view-projects-btn">
+                <Button variant="outline-primary" href="#projects">
                   <i className="bi bi-code-slash me-2"></i>
                   See What I've Built
                 </Button>

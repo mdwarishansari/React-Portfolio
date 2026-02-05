@@ -7,6 +7,7 @@ import {
   FaChevronDown,
   FaChevronUp,
   FaRegCalendarAlt,
+  FaStar,
 } from "react-icons/fa";
 import "./projects.css";
 
@@ -23,6 +24,7 @@ const Projects = () => {
   const [expandedProject, setExpandedProject] = useState(null);
   const [inView, setInView] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("all");
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -43,136 +45,123 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
-  const toggleProject = (index) => {
-    setExpandedProject((prev) => (prev === index ? null : index));
+  const toggleProject = (projectId) => {
+    setExpandedProject((prev) => (prev === projectId ? null : projectId));
   };
 
   const projects = [
     {
       id: 7,
-      title: "✈️ TravelEase - Travel Booking Platform",
-      description:
-        "🌍 A Django-based travel booking platform where users can sign up, log in, and manage their travel bookings with an intuitive interface.",
-      longDescription:
-        "⚙️ Developed as part of the TravelEase Internship Selection Assignment, this project provides features like 👤 user authentication & dashboard, 📅 booking & cancellation system, 🏨 tracking of upcoming & past bookings, and 🎨 a responsive UI built with Bootstrap. 🗄️ Integrated with PostgreSQL/MongoDB for persistent storage, and deployed on Render for live testing. 🚀 Demonstrates full-stack web development skills using Django.",
-      skills: [
-        "Django",
-        "Python",
-        "Bootstrap",
-        "HTML",
-        "CSS",
-        "PostgreSQL / MongoDB",
-        "Authentication",
-      ],
+      title: "TravelEase",
+      subtitle: "Travel Booking Platform",
+      description: "A Django-based travel booking platform where users can sign up, log in, and manage their travel bookings.",
+      longDescription: "Developed as part of the TravelEase Internship Assignment. Features user authentication, booking & cancellation system, tracking of bookings, and responsive UI with Bootstrap. Integrated with PostgreSQL/MongoDB.",
+      skills: ["Django", "Python", "Bootstrap", "PostgreSQL", "MongoDB"],
       image: travelease,
       projectLink: "https://travelease-p0ov.onrender.com/",
       date: "August 2025",
+      category: "minor",
+      emoji: "✈️",
     },
-
     {
       id: 6,
-      title: "🛒 NexusShop - E-commerce Platform",
-      description:
-        "🛍️ A full-featured MERN-stack E-commerce web app where users can browse products, manage carts, and place orders with a smooth, responsive experience.",
-      longDescription:
-        "⚙️ Built with the MERN stack (MongoDB, Express.js, React.js, Node.js), NexusShop offers dynamic product listings, 🛒 role-based access control (Admin | Seller | Customer), 🔑 secure JWT authentication, 📦 real-time inventory updates, 💳 payment gateway integration, and a responsive UI with Tailwind CSS. 🚀 Deployed on Render with MongoDB Atlas, optimized for scalability and performance.",
-      skills: [
-        "MongoDB",
-        "Express.js",
-        "React.js",
-        "Node.js",
-        "Tailwind CSS",
-        "JWT Authentication",
-        "RBAC",
-      ],
+      title: "NexusShop",
+      subtitle: "E-commerce Platform",
+      description: "A full-featured MERN-stack E-commerce web app with product management, cart, and orders.",
+      longDescription: "Built with MERN stack featuring dynamic product listings, role-based access control (Admin | Seller | Customer), JWT authentication, real-time inventory updates, payment gateway integration, and Tailwind CSS styling.",
+      skills: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT"],
       image: nexusshop,
       projectLink: "https://nexusshop.onrender.com/",
       githubLink: "https://github.com/mdwarishansari/CodeAlpha_Shopping_Web.git",
       date: "July 2025",
+      category: "major",
+      emoji: "🛒",
     },
-
     {
       id: 5,
-      title: "🎯 She Can Intern - Fundraising Selection Portal",
-      description:
-        "🌟 A full-stack MERN web application designed for a referral-based fundraising internship selection process, featuring secure authentication, user dashboards, and an admin management panel.",
-      longDescription:
-        "⚙️ Developed using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Tailwind CSS with AOS animations, this portal enables interns to register with unique referral codes, track earnings, and view leaderboard rankings. Admins can securely manage users, funding data, and contact messages with full CRUD functionality. Includes 🔑 environment-based admin credential seeding, 🛡️ JWT authentication, 📊 dynamic leaderboard, and 📩 contact form integration. 🚀 Deployed on Render with MongoDB Atlas.",
-      skills: [
-        "MongoDB",
-        "Express.js",
-        "React.js",
-        "Node.js",
-        "Tailwind CSS",
-        "JWT Authentication",
-        "Admin Dashboard",
-        "AOS Animations",
-      ],
+      title: "She Can Intern",
+      subtitle: "Fundraising Portal",
+      description: "Full-stack MERN application for referral-based fundraising internship selection.",
+      longDescription: "Features unique referral codes, earnings tracking, leaderboard rankings, admin panel with CRUD, JWT authentication. Built with MERN stack and Tailwind CSS with AOS animations.",
+      skills: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
       image: shecanintern,
       projectLink: "https://she-can-intern-proj.onrender.com/",
-      githubLink:
-        "https://github.com/mdwarishansari/She_Can_Intern_SelectionProj.git",
+      githubLink: "https://github.com/mdwarishansari/She_Can_Intern_SelectionProj.git",
       date: "August 2025",
+      category: "minor",
+      emoji: "🎯",
     },
     {
       id: 4,
-      title: "🎬 MoviesVibe",
-      description:
-        "🍿 MoviesVibe is a clean, interactive React web app that integrates with the OMDB API to fetch and display movie data...",
-      longDescription:
-        "🔥 Through this project, I deepened my understanding of React fundamentals: managing state, performing async API calls, rendering components...",
-      skills: ["Django", "Responsive Design", "Python", "dbsqlite3"],
+      title: "MoviesVibe",
+      subtitle: "Movie Discovery App",
+      description: "Interactive React web app with OMDB API integration for movie data display.",
+      longDescription: "Deepened understanding of React fundamentals: state management, async API calls, component rendering, and responsive design principles.",
+      skills: ["Django", "React", "Python", "API Integration"],
       image: moviesvibe,
       projectLink: "https://moviesvibe-lt7u.onrender.com/",
       githubLink: "https://github.com/mdwarishansari/MoviesVibe",
       date: "February 2025",
+      category: "major",
+      emoji: "🎬",
     },
     {
       id: 3,
-      title: "🚀 React-Portfolio",
-      description:
-        "🚀 React-Portfolio is a modern developer website that showcases my skills, projects, and experience — built entirely with React and React-Bootstrap...",
-      longDescription:
-        "🎯 This project marks my journey into component-driven development. I learned about React hooks, conditional rendering, module-based CSS...",
-      skills: ["React", "Api Integration", "Responsive Design"],
+      title: "React-Portfolio",
+      subtitle: "Developer Portfolio",
+      description: "Modern developer website showcasing skills, projects, and experience.",
+      longDescription: "Journey into component-driven development with React hooks, conditional rendering, and module-based styling.",
+      skills: ["React", "React-Bootstrap", "Responsive Design"],
       image: portfolio,
       projectLink: "https://portfolio-m9f0.onrender.com/",
       githubLink: "https://github.com/mdwarishansari/React-Portfolio",
       date: "May 2025",
+      category: "minor",
+      emoji: "🚀",
     },
-
     {
       id: 2,
       title: "Portfolio-Bootstrap",
-      description:
-        "🎨 Portfolio-Bootstrap is a sleek, mobile-responsive developer portfolio built using only HTML, CSS, and Bootstrap 5...",
-      longDescription:
-        "💡 This project demonstrates my ability to craft clean user interfaces and responsive layouts without using JavaScript...",
-      skills: ["Html5", "Css3", "Bootstrap5", "Responsive Design"],
+      subtitle: "Static Portfolio",
+      description: "Sleek, mobile-responsive developer portfolio with HTML, CSS, and Bootstrap 5.",
+      longDescription: "Demonstrates ability to craft clean UI and responsive layouts without JavaScript.",
+      skills: ["HTML5", "CSS3", "Bootstrap5"],
       image: boot_port,
       projectLink: "https://mdwarishansari.github.io/Portfolio_Bootstrap/",
       githubLink: "https://github.com/mdwarishansari/Portfolio_Bootstrap.git",
       date: "November 2024",
+      category: "minor",
+      emoji: "🎨",
     },
     {
       id: 1,
-      title: "Course Selling Website Interface",
-      description:
-        "📘 A clean and responsive multi-page course-selling website built using only HTML & CSS...",
-      longDescription:
-        "✨ This project was designed to provide a smooth and engaging user experience for students and course providers...",
-      skills: ["Html5", "Css3", "Github"],
+      title: "Course Website",
+      subtitle: "Course Selling Interface",
+      description: "Clean and responsive multi-page course-selling website.",
+      longDescription: "Designed for smooth user experience for students and course providers.",
+      skills: ["HTML5", "CSS3", "GitHub"],
       image: first_project,
       projectLink: "https://mdwarishansari.github.io/FirstProject/",
       githubLink: "https://github.com/mdwarishansari/FirstProject.git",
       date: "April 2024",
+      category: "minor",
+      emoji: "📘",
     },
   ];
 
+  const categories = [
+    { id: "all", label: "All Projects", icon: "bi-grid-3x3-gap" },
+    { id: "major", label: "Major Projects", icon: "bi-star-fill" },
+    { id: "minor", label: "Minor Projects", icon: "bi-collection" },
+  ];
+
   const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
-  const displayedProjects = showAll
-    ? sortedProjects
-    : sortedProjects.slice(0, 4);
+  
+  const filteredProjects = activeCategory === "all" 
+    ? sortedProjects 
+    : sortedProjects.filter(project => project.category === activeCategory);
+  
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
     <section
@@ -184,88 +173,100 @@ const Projects = () => {
         <div className="section-header mb-5">
           <h2 className="section-title">Projects</h2>
           <div className="section-divider"></div>
-          <p className="section-subtitle text-center text-light mt-4">
+          <p className="section-subtitle text-center mt-4">
             My latest creations. Click on any project to explore details.
           </p>
+        </div>
+
+        {/* Category Tabs */}
+        <div className="project-tabs mb-5">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`project-tab ${activeCategory === category.id ? "active" : ""}`}
+              onClick={() => { setActiveCategory(category.id); setShowAll(false); setExpandedProject(null); }}
+            >
+              <i className={`bi ${category.icon} me-2`}></i>
+              {category.label}
+            </button>
+          ))}
         </div>
 
         <Row className="g-4 justify-content-center">
           {displayedProjects.map((project, index) => (
             <Col key={project.id} lg={6} className="project-col">
               <div
-                className={`project-card ${
-                  expandedProject === index ? "expanded" : ""
-                }`}
-                onClick={() => toggleProject(index)}
+                className={`project-card ${expandedProject === project.id ? "expanded" : ""} ${project.category === "major" ? "major-project" : ""}`}
+                onClick={() => toggleProject(project.id)}
                 style={{
                   animationDelay: `${index * 0.1}s`,
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? "translateY(0)" : "translateY(30px)",
                 }}
               >
-                <div className="project-header">
-                  <div className="project-image">
-                    <img src={project.image} alt={project.title} />
-                    <div className="project-badge">
-                      <FaRegCalendarAlt className="me-1" /> {project.date}
-                    </div>
+                {/* Glow Effect for Major */}
+                {project.category === "major" && <div className="major-glow"></div>}
+                
+                <div className="project-image-wrapper">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <div className="project-overlay">
+                    <span className="project-emoji">{project.emoji}</span>
                   </div>
-                  <div className="project-title-container">
-                    <div>
-                      <h3 className="project-title">{project.title}</h3>
-                    </div>
-                    <button className="expand-btn">
-                      {expandedProject === index ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </button>
+                  <div className="project-date-badge">
+                    <FaRegCalendarAlt className="me-1" /> {project.date}
                   </div>
+                  {project.category === "major" && (
+                    <div className="major-badge">
+                      <FaStar className="me-1" /> Featured
+                    </div>
+                  )}
                 </div>
 
-                <div className="project-content">
+                <div className="project-info">
+                  <div className="project-header">
+                    <div>
+                      <h3 className="project-title">{project.emoji} {project.title}</h3>
+                      <p className="project-subtitle">{project.subtitle}</p>
+                    </div>
+                    <button className="expand-toggle">
+                      {expandedProject === project.id ? <FaChevronUp /> : <FaChevronDown />}
+                    </button>
+                  </div>
+
                   <p className="project-description">{project.description}</p>
 
-                  <div
-                    className={`project-details ${
-                      expandedProject === index ? "show" : ""
-                    }`}
-                  >
-                    <p className="project-long-description">
-                      {project.longDescription}
-                    </p>
+                  <div className="project-tech">
+                    {project.skills.slice(0, 4).map((skill, i) => (
+                      <span key={i} className="tech-tag">{skill}</span>
+                    ))}
+                    {project.skills.length > 4 && (
+                      <span className="tech-tag more">+{project.skills.length - 4}</span>
+                    )}
+                  </div>
 
-                    <div className="skills-used">
-                      <h4>Technologies Used:</h4>
-                      <div className="skill-tags">
+                  <div className={`project-expanded ${expandedProject === project.id ? "show" : ""}`}>
+                    <p className="project-long-desc">{project.longDescription}</p>
+                    
+                    <div className="all-tech">
+                      <h5>All Technologies</h5>
+                      <div className="tech-list">
                         {project.skills.map((skill, i) => (
-                          <span key={i} className="skill-tag">
-                            {skill}
-                          </span>
+                          <span key={i} className="tech-chip">{skill}</span>
                         ))}
                       </div>
                     </div>
 
-                    <div className="project-links">
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link github"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <FaGithub className="me-2" /> GitHub Repository
-                      </a>
-                      <a
-                        href={project.projectLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link live"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <FaExternalLinkAlt className="me-2" /> Live Project
-                      </a>
+                    <div className="project-actions">
+                      {project.githubLink && (
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer"
+                          className="action-btn github-btn" onClick={(e) => e.stopPropagation()}>
+                          <FaGithub /> Code
+                        </a>
+                      )}
+                      {project.projectLink && (
+                        <a href={project.projectLink} target="_blank" rel="noopener noreferrer"
+                          className="action-btn live-btn" onClick={(e) => e.stopPropagation()}>
+                          <FaExternalLinkAlt /> Live Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -274,23 +275,13 @@ const Projects = () => {
           ))}
         </Row>
 
-        {/* Show More/Less button */}
-        {sortedProjects.length > 4 && (
-          <div className="text-center mt-4">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="btn btn-outline-primary"
-            >
+        {filteredProjects.length > 4 && (
+          <div className="text-center mt-5">
+            <button onClick={() => setShowAll(!showAll)} className="btn-show-more">
               {showAll ? (
-                <>
-                  <FaChevronUp className="me-2" />
-                  Show Less
-                </>
+                <><FaChevronUp className="me-2" /> Show Less</>
               ) : (
-                <>
-                  <FaChevronDown className="me-2" />
-                  Show More ({sortedProjects.length - 4} more)
-                </>
+                <><FaChevronDown className="me-2" /> Show More ({filteredProjects.length - 4} more)</>
               )}
             </button>
           </div>

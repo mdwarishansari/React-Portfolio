@@ -3,30 +3,36 @@ import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import "./navbar.css";
 
 const CustomNavbar = () => {
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("hero");
+  const [scrolled, setScrolled] = useState(false);
 
   const handleHireMe = () => {
     const subject = encodeURIComponent("Hire from Portfolio");
     const body = encodeURIComponent(
-      "Hii Warish,\n\nI want to hire you and discuss potential opportunities."
+      "Hii Warish,\n\nI want to hire you and discuss potential opportunities.",
     );
     window.location.href = `https://mail.google.com/mail/?view=cm&to=warishansari018@gmail.com&su=${subject}&body=${body}`;
   };
 
-  // Scroll-based active section tracker
   useEffect(() => {
-    const sectionIds = [
-      "hero",
-      "about",
-      "skills",
-      "projects",
-      "certifications",
-      "experience",
-      "social",
-    ];
-
     const handleScroll = () => {
-      const scrollY = window.scrollY + 150; // Adjust based on your navbar height
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      const sectionIds = [
+        "hero",
+        "about",
+        "skills",
+        "projects",
+        "certifications",
+        "experience",
+        "social",
+      ];
+      
+      const scrollY = window.scrollY + 200;
       let currentSection = sectionIds[0];
 
       for (let id of sectionIds) {
@@ -35,111 +41,52 @@ const CustomNavbar = () => {
           currentSection = id;
         }
       }
-
       setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Trigger once on mount
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <Navbar fixed="top" expand="lg" className="bg-black py-3" variant="dark">
+    <Navbar
+      fixed="top"
+      expand="lg"
+      className={`custom-navbar ${scrolled ? "scrolled" : ""}`}
+      variant="dark"
+    >
       <Container>
-        <Navbar.Brand href="/" className="text-white">
-          <i className="bi bi-laptop me-2 text-primary"></i>
+        <Navbar.Brand href="/" className="brand-logo">
+          <i className="bi bi-laptop me-2"></i>
           Portfolio
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto">
-            <Nav.Link
-              href="#hero"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "home"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-house-door me-2"></i>
-              Home
-            </Nav.Link>
-
-            <Nav.Link
-              href="#about"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "about"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-person me-2"></i>
-              About
-            </Nav.Link>
-
-            <Nav.Link
-              href="#skills"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "skills"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-tools me-2"></i>
-              Skills
-            </Nav.Link>
-
-            <Nav.Link
-              href="#projects"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "projects"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-rocket-takeoff me-2"></i>
-              Projects
-            </Nav.Link>
-
-            <Nav.Link
-              href="#certifications"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "certifications"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-award me-2"></i>
-              Certifications
-            </Nav.Link>
-
-            <Nav.Link
-              href="#experience"
-              className={`mx-2 ${
-                activeSection === "experience" ? "text-primary" : "text-white"
-              }`}
-            >
-              <i className="bi bi-briefcase me-2"></i>
-              Experience
-            </Nav.Link>
-
-            <Nav.Link
-              href="#social"
-              className={`mx-2 ${
-                activeSection.toLowerCase() === "social"
-                  ? "text-primary"
-                  : "text-white"
-              }`}
-            >
-              <i className="bi bi-person-plus me-2"></i>
-              Social
-            </Nav.Link>
+          <Nav className="mx-auto align-items-center">
+            {[
+              { id: "hero", icon: "bi-house-door", label: "Home" },
+              { id: "about", icon: "bi-person", label: "About" },
+              { id: "skills", icon: "bi-tools", label: "Skills" },
+              { id: "projects", icon: "bi-rocket-takeoff", label: "Projects" },
+              { id: "certifications", icon: "bi-award", label: "Certifications" },
+              { id: "experience", icon: "bi-briefcase", label: "Experience" },
+              { id: "social", icon: "bi-person-plus", label: "Social" },
+            ].map((item) => (
+              <Nav.Link
+                key={item.id}
+                href={`#${item.id}`}
+                className={`nav-link-custom ${
+                  activeSection.toLowerCase() === item.id ? "active" : ""
+                }`}
+              >
+                <i className={`bi ${item.icon} me-2`}></i>
+                {item.label}
+              </Nav.Link>
+            ))}
           </Nav>
 
-          <Button variant="primary" className="hire-btn" onClick={handleHireMe}>
+          <Button variant="outline-primary" className="ms-lg-3 mt-3 mt-lg-0" onClick={handleHireMe}>
             <i className="bi bi-envelope-arrow-up me-2"></i>
             Hire Me
           </Button>

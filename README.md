@@ -1,35 +1,34 @@
-
-🔗 **Live Demo:** [portfolio-m9f0.onrender.com](https://portfolio-m9f0.onrender.com)  
-
----
-
-## ✨ Features  
-
-- 🎨 **Modern UI/UX** – Custom design with smooth animations  
-- 📱 **Responsive Design** – Fully mobile-friendly  
-- ⚡ **Fast & Optimized** – Built with React.js and modular components  
-- 🧩 **Reusable Components** – Navbar, Hero, About, Skills, Projects, Experience, Certifications, Footer  
-- 🗂️ **Projects Showcase** – With preview images & live/demo links  
-- 📜 **Certifications Section** – Displaying achievements and credentials  
-- 💼 **Experience Timeline** – Internship & work journey  
-- 📬 **Contact & Social Links** – Easy to connect  
+🔗 **Live Demo:** [Live URL](https://portfolio-warish.vercel.app)
 
 ---
 
-## 🛠️ Tech Stack  
+## ✨ Features
 
-- **Framework:** React.js  
-- **Styling:** CSS (custom component-based styles)  
-- **Deployment:** Render  
-- **Version Control:** Git & GitHub  
+- 🎨 **Modern UI/UX** – Custom design with smooth animations
+- 📱 **Responsive Design** – Fully mobile-friendly
+- ⚡ **Fast & Optimized** – Built with React.js and modular components
+- 🧩 **Reusable Components** – Navbar, Hero, About, Skills, Projects, Experience, Certifications, Footer
+- 🗂️ **Projects Showcase** – With preview images & live/demo links
+- 📜 **Certifications Section** – Displaying achievements and credentials
+- 💼 **Experience Timeline** – Internship & work journey
+- 📬 **Contact & Social Links** – Easy to connect
 
 ---
 
-## 📂 Folder Structure  
+## 🛠️ Tech Stack
+
+- **Framework:** React.js
+- **Styling:** CSS (custom component-based styles)
+- **Deployment:** Vercel
+- **Version Control:** Git & GitHub
+
+---
+
+## 📂 Folder Structure
 
 ```
 
-React-Portfolio/
+Portfolio/
 │── public/
 │   ├── index.html          # Base HTML
 │   ├── style.css           # Global styles
@@ -48,33 +47,34 @@ React-Portfolio/
 │   │   └── Footer/         # Footer section
 │   │
 │   ├── App.js              # Main app
-│   └── index.js            # Entry point
+│   ├── index.js            # Entry point
+|   └── index.css           # Global styles
 │
 ├── package.json            # Dependencies
 ├── README.md               # Project info
 └── .gitignore
 
-````
+```
 
 ---
 
-## 🚀 Getting Started  
+## 🚀 Getting Started
 
-To run this project locally:  
+To run this project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/React-Portfolio.git  
+git clone https://github.com/mdwarishansari/Portfolio.git
 
 # Navigate into the folder
-cd React-Portfolio  
+cd Portfolio
 
 # Install dependencies
-npm install  
+npm install
 
 # Start development server
 npm start
-````
+```
 
 ---
 
@@ -93,16 +93,16 @@ npm start
 
 ## 📸 Preview
 
-👉 *(Insert screenshots / GIF of your portfolio UI here)*
+👉 _(Insert screenshots / GIF of your portfolio UI here)_
 
 ---
 
 ## 📬 Contact
 
-* **Name:** Md Warish Ansari
-* **Email:** [warishansari018@gmail.com](mailto:warishansari018@gmail.com)
-* **LinkedIn:** [MD WARISH ANSARI](https://www.linkedin.com/in/md-warish-ansari-46b1ab258/)
-* **GitHub:** [Github](https://github.com/mdwarish7867)
+- **Name:** Md Warish Ansari
+- **Email:** [warishansari018@gmail.com](mailto:warishansari018@gmail.com)
+- **LinkedIn:** [MD WARISH ANSARI](https://www.linkedin.com/in/md-warish-ansari/)
+- **GitHub:** [Github](https://github.com/mdwarishansari)
 
 ---
 

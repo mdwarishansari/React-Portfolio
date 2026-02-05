@@ -7,6 +7,8 @@ import {
   FaExternalLinkAlt,
   FaChevronDown,
   FaChevronUp,
+  FaCertificate,
+  FaTimes,
 } from "react-icons/fa";
 import "./experience.css";
 
@@ -14,6 +16,8 @@ const Experience = () => {
   const [expandedExperience, setExpandedExperience] = useState(null);
   const [inView, setInView] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentCert, setCurrentCert] = useState(null);
   const sectionRef = useRef(null);
 
   // Intersection Observer for scroll animations
@@ -43,11 +47,22 @@ const Experience = () => {
     }
   };
 
-  // Experience data - most recent first
+  const openCertModal = (cert) => {
+    setCurrentCert(cert);
+    setModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeCertModal = () => {
+    setModalOpen(false);
+    document.body.style.overflow = "auto";
+  };
+
+  // Experience data with certificate info
   const experiences = [
     {
       id: 3,
-      role: "MERN Stack Intern ",
+      role: "MERN Stack Intern",
       company: "Soft Nexis Technology",
       duration: "January 2025 – January 2025",
       location: "Remote / Online",
@@ -71,8 +86,14 @@ const Experience = () => {
         "Team Collaboration",
       ],
       link: "https://www.softnexis.com/",
+      certificate: {
+        name: "MERN Stack Internship Certificate",
+        thumbnail: "https://i.postimg.cc/525LKyTw/Soft-Nexis-Internship-page-0001.jpg",
+        fullImage: "https://i.postimg.cc/525LKyTw/Soft-Nexis-Internship-page-0001.jpg",
+        verifyUrl: "https://www.softnexis.com/",
+        credential: "SN1000356",
+      },
     },
-
     {
       id: 2,
       role: "Full Stack Web Development Intern",
@@ -96,6 +117,13 @@ const Experience = () => {
         "Deployment",
       ],
       link: "https://codealpha-shopping-web.onrender.com/",
+      certificate: {
+        name: "Full Stack Development Internship",
+        thumbnail: "https://i.postimg.cc/BQ9z2Mm7/Code-Alpha-Certificate-page-0001.jpg",
+        fullImage: "https://i.postimg.cc/BQ9z2Mm7/Code-Alpha-Certificate-page-0001.jpg",
+        verifyUrl: "http://www.codealpha.tech",
+        credential: "CA-FS-2025",
+      },
     },
     {
       id: 1,
@@ -113,6 +141,13 @@ const Experience = () => {
       ],
       skills: ["Python", "HTML", "CSS", "Bootstrap", "Django"],
       link: "https://moviesvibe-lt7u.onrender.com/",
+      certificate: {
+        name: "Full Stack Web Development with Python",
+        thumbnail: "https://i.postimg.cc/fWGsQ52w/INTERNSHIP-FULL-STACK-WITH-PYTHON-page-0001.jpg",
+        fullImage: "https://i.postimg.cc/fWGsQ52w/INTERNSHIP-FULL-STACK-WITH-PYTHON-page-0001.jpg",
+        verifyUrl: "https://shashiinfotech.com/",
+        credential: "SI-FSP-2025",
+      },
     },
   ];
 
@@ -178,6 +213,23 @@ const Experience = () => {
 
                 <p className="timeline-description">{exp.description}</p>
 
+                {/* Certificate Preview */}
+                {exp.certificate && (
+                  <div className="cert-preview" onClick={() => openCertModal(exp.certificate)}>
+                    <div className="cert-preview-thumb">
+                      <img src={exp.certificate.thumbnail} alt={exp.certificate.name} />
+                      <div className="cert-preview-overlay">
+                        <FaCertificate />
+                        <span>View Certificate</span>
+                      </div>
+                    </div>
+                    <div className="cert-preview-info">
+                      <FaCertificate className="cert-icon" />
+                      <span>Certificate Available</span>
+                    </div>
+                  </div>
+                )}
+
                 <div
                   className={`timeline-details ${
                     expandedExperience === index ? "show" : ""
@@ -241,6 +293,30 @@ const Experience = () => {
           </div>
         )}
       </Container>
+
+      {/* Certificate Modal */}
+      {modalOpen && currentCert && (
+        <div className="cert-modal-exp" onClick={closeCertModal}>
+          <div className="modal-content-exp" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn-exp" onClick={closeCertModal}>
+              <FaTimes />
+            </button>
+            <img src={currentCert.fullImage} alt={currentCert.name} className="full-cert-img-exp" />
+            <div className="cert-modal-info-exp">
+              <h3>{currentCert.name}</h3>
+              {currentCert.credential && <p>Credential: {currentCert.credential}</p>}
+              <a
+                href={currentCert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="verify-btn-exp"
+              >
+                <FaExternalLinkAlt className="me-2" /> Verify Credential
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

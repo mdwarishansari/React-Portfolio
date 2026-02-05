@@ -1,9 +1,9 @@
-/* Footer Styles */
+/* Footer - Enhanced with Blue-Purple Theme and Animations */
 footer {
-  border-top: 1px solid rgba(13, 110, 253, 0.3);
+  background: linear-gradient(145deg, #050505 0%, #0a0a0a 50%, #1a1a2e 100%);
   position: relative;
-  z-index: 1;
   overflow: hidden;
+  padding: 80px 0 40px;
 }
 
 footer::before {
@@ -13,65 +13,473 @@ footer::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(13, 110, 253, 0.03) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(108, 117, 125, 0.03) 0%, transparent 20%);
-  z-index: -1;
+  background: radial-gradient(circle at 20% 80%, rgba(0, 114, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+  z-index: 0;
 }
 
-footer a {
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-footer a:after {
+footer::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  top: 0;
   left: 0;
-  width: 0;
-  height: 1px;
-  background: #0d6efd;
-  transition: width 0.3s ease;
-}
-
-footer a:hover {
-  color: #0d6efd !important;
-}
-
-footer a:hover:after {
   width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #8a2be2, #bc13fe);
+  animation: gradient-move 4s ease infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Titles */
+footer h5 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #00c6ff, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+footer h5::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #00c6ff, #8a2be2);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Contact Info */
+.contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  background: rgba(138, 43, 226, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  transition: all 0.4s ease;
+  text-decoration: none;
+}
+
+.contact-item:hover {
+  background: rgba(138, 43, 226, 0.15);
+  transform: translateX(10px);
+  border-color: rgba(138, 43, 226, 0.4);
+  box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00c6ff, #8a2be2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.contact-text {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover .contact-text {
+  color: white;
+}
+
+/* Stats with Shimmer Progress Bars */
+.stat-item {
+  margin-bottom: 25px;
+}
+
+.stat-label {
+  display: flex;
+  justify-content: space-between;
+  color: #e0e0e0;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.stat-value {
+  color: #8a2be2;
+  font-weight: 700;
+}
+
+.progress {
+  height: 12px;
+  background: rgba(138, 43, 226, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(138, 43, 226, 0.2);
 }
 
 .progress-bar {
-  transition: width 1s ease-in-out;
-}
-
-footer .btn-outline-primary {
-  border-width: 2px;
-}
-
-footer .btn-outline-primary:hover {
-  background-color: #0d6efd !important;
-  color: white !important;
-}
-
-/* Ensure text has proper contrast */
-footer .position-relative>* {
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #8a2be2);
+  border-radius: 10px;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+  transition: width 1.5s ease;
 }
 
-/* Use the same hire button style as navbar */
-.hire-btn {
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Philosophy Quote */
+.philosophy-quote {
+  background: linear-gradient(145deg, rgba(15, 15, 20, 0.8), rgba(20, 20, 30, 0.6));
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.philosophy-quote:hover {
+  border-color: rgba(138, 43, 226, 0.4);
+  box-shadow: 0 15px 40px rgba(138, 43, 226, 0.2);
+  transform: translateY(-5px);
+}
+
+.philosophy-quote::before {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 5rem;
+  background: linear-gradient(135deg, rgba(0, 198, 255, 0.2), rgba(138, 43, 226, 0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.philosophy-quote blockquote {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #c0c0c0;
+  line-height: 1.8;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* Social Links in Footer */
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  width: 50px;
+  height: 50px;
+  background: rgba(138, 43, 226, 0.1);
+  border: 2px solid rgba(138, 43, 226, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #8a2be2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social a:hover {
+  background: linear-gradient(135deg, #00c6ff, #8a2be2);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-5px) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5);
+}
+
+/* Copyright */
+.copyright {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright-text {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.copyright-text a {
+  color: #8a2be2;
+  text-decoration: none;
+  font-weight: 600;
   transition: all 0.3s ease;
-  background-color: #0d6efd !important;
-  border-color: #0d6efd !important;
-  color: white !important;
 }
 
-.hire-btn:hover {
-  background-color: #000 !important;
-  border-color: #0d6efd !important;
-  color: #0d6efd !important;
+.copyright-text a:hover {
+  color: #bc13fe;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Heart Animation */
+.heart-icon {
+  color: #bc13fe;
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Built With */
+.built-with {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.tech-icons i,
+.tech-icons svg {
+  font-size: 1.4rem;
+  color: #8a2be2;
+  transition: all 0.3s ease;
+}
+
+.tech-icons i:hover,
+.tech-icons svg:hover {
+  color: #00c6ff;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.5));
+}
+
+/* Scroll Up Button */
+.scroll-up-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #00c6ff, #8a2be2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(138, 43, 226, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-up-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-up-btn:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 15px 45px rgba(0, 114, 255, 0.5), 0 15px 45px rgba(138, 43, 226, 0.5);
+}
+
+/* Floating Particles (Decorative) */
+.footer-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #00c6ff, #8a2be2);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float-up 12s linear infinite;
+}
+
+.footer-particle:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.footer-particle:nth-child(2) {
+  left: 30%;
+  animation-delay: 3s;
+}
+
+.footer-particle:nth-child(3) {
+  left: 50%;
+  animation-delay: 6s;
+}
+
+.footer-particle:nth-child(4) {
+  left: 70%;
+  animation-delay: 9s;
+}
+
+.footer-particle:nth-child(5) {
+  left: 90%;
+  animation-delay: 2s;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  footer h5 {
+    font-size: 1.2rem;
+  }
+
+  .contact-item {
+    padding: 15px 18px;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 60px 0 30px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .philosophy-quote {
+    padding: 25px;
+  }
+
+  .philosophy-quote::before {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  footer h5 {
+    font-size: 1.1rem;
+  }
+
+  .contact-item {
+    padding: 12px 15px;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .footer-social a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
 }

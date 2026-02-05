@@ -146,16 +146,13 @@ const Footer = () => {
           <Col className="text-center">
             <p className="mb-0 d-flex align-items-center justify-content-center">
               <BiCopyright className="me-2" />
-              {currentYear}{" "}
-              <span className="text-primary"> Md Warish Ansari.</span> All
+              {currentYear}&nbsp;
+              <span className="text-primary">Md Warish Ansari</span>.&nbsp;All
               rights reserved
             </p>
             <p className="mb-0 mt-2">
               Crafted with <BiHeart className="text-danger mx-1" /> using React,
-              Bootstrap & Spline
-            </p>
-            <p className="mt-2 small text-light">
-              Robot design created with{" "}
+              Bootstrap & {" "}
               <a
                 href="https://app.spline.design/community/file/8cfb6748-f3dd-44dd-89fb-f46c7ab4186e"
                 target="_blank"

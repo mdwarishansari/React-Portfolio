@@ -42,7 +42,7 @@ const Hero = () => {
                 ]}
                 wrapper="span"
                 speed={30}
-                style={{ display: "inline-block" }}
+                style={{ display: "inline-block", color: "#ffffff" }}
                 cursor={false}
                 repeat={0}
               />
@@ -70,13 +70,14 @@ const Hero = () => {
                       display: "inline-block",
                       color: "#0d6efd",
                       position: "relative",
+                      fontWeight: "800",
                     }}
                     repeat={0}
                     cursor={cursorVisible}
                   />
                 </>
               ) : (
-                <span className="blinking-cursor">|</span>
+                <span className="blinking-cursor" style={{ color: "#0d6efd" }}>|</span>
               )}
             </h1>
             <p className="lead text-light mb-4">
@@ -96,9 +97,9 @@ const Hero = () => {
                 Hire Me
               </Button>
               <Button
-                variant="outline-light"
+                variant="outline-primary"
                 size="lg"
-                className="px-4 py-2 project-btn"
+                className="px-4 py-2"
                 href="#projects"
               >
                 <i className="bi bi-rocket-takeoff me-2"></i>

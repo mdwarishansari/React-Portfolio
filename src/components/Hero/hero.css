@@ -1,84 +1,159 @@
-/* Hero Section */
+/* Hero Section - Enhanced with Blue-Purple Theme */
+:root {
+    --gradient-primary: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%);
+    --gradient-blue-purple: linear-gradient(135deg, #0072ff, #8a2be2);
+}
+
 #hero {
-    background: linear-gradient(145deg, #0a0a0a 60%, #1a1a2e 80%);
-    padding: 6rem 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 114, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 30%, rgba(188, 19, 254, 0.08) 0%, transparent 40%),
+        linear-gradient(145deg, #0a0a0a 60%, #1a1a2e 80%);
+    position: relative;
+    overflow: hidden;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    padding-top: 80px;
 }
 
-.hero-text h1 {
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    min-height: 180px;
-}
-
-.hero-text .lead {
-    font-size: 1.25rem;
-    max-width: 90%;
-    opacity: 0.85;
-    margin-bottom: 2rem;
-}
-
-/* Spline Container */
-.spline-col {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.spline-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
-}
-
-/* .spline-container:hover {
-    transform: scale(1.02);
-} */
-
-.spline-scene {
+#hero::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(138, 43, 226, 0.05) 50%, transparent 60%);
+    background-size: 200% 200%;
+    animation: shimmer-hero 8s ease-in-out infinite;
+    z-index: 0;
 }
 
-/* Custom Cursor Animation */
+@keyframes shimmer-hero {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00c6ff, #8a2be2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow-pulse 2s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 25px rgba(138, 43, 226, 0.8));
+    }
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.hero-text h1 span {
+    background: linear-gradient(135deg, #00c6ff, #0072ff, #8a2be2);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
 .blinking-cursor {
-    color: #0d6efd;
-    animation: blink 1s infinite;
+    color: #8a2be2 !important;
+    animation: blink 1s step-end infinite;
+    font-weight: 400;
 }
 
 @keyframes blink {
 
     0%,
-    100% {
+    50% {
         opacity: 1;
     }
 
-    50% {
+    51%,
+    100% {
         opacity: 0;
     }
 }
 
-/* Button Styling */
+/* Buttons */
 .hire-btn {
-    background: #0d6efd;
-    border: 2px solid #0d6efd;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%) !important;
+    background-size: 200% 200% !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 15px 35px !important;
+    font-weight: 700 !important;
+    color: white !important;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 114, 255, 0.3), 0 8px 30px rgba(138, 43, 226, 0.3);
     position: relative;
     overflow: hidden;
-    z-index: 1;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: gradient-flow 4s ease infinite;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hire-btn::before {
@@ -88,9 +163,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-    z-index: -1;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
 }
 
 .hire-btn:hover::before {
@@ -98,77 +172,181 @@
 }
 
 .hire-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-        border-color: #0b5ed7 !important;
-        color: #0b5ed7 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 114, 255, 0.5),
+        0 15px 45px rgba(138, 43, 226, 0.5),
+        0 0 40px rgba(138, 43, 226, 0.3);
 }
 
-.btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1);
+.hire-btn i {
+    transition: transform 0.3s ease;
 }
 
-/* Project Button Styling */
+.hire-btn:hover i {
+    transform: translateX(5px);
+}
+
 .project-btn {
-    background: rgba(255, 255, 255, 0);
-    border: 2px solid #0b5ed7 !important;
-    color: #0b5ed7 !important;
-    transition: all 0.3s ease;
+    background: rgba(138, 43, 226, 0.1) !important;
+    border: 2px solid rgba(138, 43, 226, 0.5) !important;
+    border-radius: 50px !important;
+    padding: 15px 35px !important;
+    font-weight: 700 !important;
+    color: #bc13fe !important;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+
+.project-btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .project-btn:hover {
-    background: #0b5ed7 !important;
-    border-color: #0b5ed7 !important;
     color: white !important;
-    /* Fixed text color on hover */
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
+    border-color: transparent !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 114, 255, 0.4), 0 15px 45px rgba(138, 43, 226, 0.4);
 }
 
-/* Responsive Adjustments */
+.project-btn i {
+    transition: transform 0.3s ease;
+}
+
+.project-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Spline Container - Fixed for Desktop */
+.spline-col {
+    position: relative;
+    z-index: 1;
+}
+
+.spline-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    animation: fadeInRight 1s ease-out 0.3s both;
+    transition: transform 0.5s ease;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.spline-container:hover {
+    transform: scale(1.02);
+}
+
+.spline-scene {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Responsive */
 @media (max-width: 992px) {
-    #hero {
-        text-align: center;
-        padding: 4rem 0;
-    }
-
-    .hero-text .lead {
-        max-width: 100%;
-        margin: 0 auto 2rem;
-    }
-
     .hero-text h1 {
-        min-height: 150px;
+        font-size: 2.8rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
     }
 
     .spline-container {
-        max-width: 500px;
-        margin: 2rem auto 0;
+        height: 400px;
     }
 }
 
 @media (max-width: 768px) {
+    #hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
     .hero-text h1 {
-        font-size: 2.5rem;
-        min-height: 120px;
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        max-width: 100%;
+        margin: 0 auto 25px;
+    }
+
+    .d-flex.flex-wrap {
+        justify-content: center;
+    }
+
+    .hire-btn,
+    .project-btn {
+        width: 100%;
+        margin-bottom: 15px;
     }
 
     .spline-container {
-        padding-bottom: 80%;
+        height: 350px;
+        margin-top: 40px;
     }
 }
 
 @media (max-width: 576px) {
     .hero-text h1 {
-        font-size: 2rem;
-        min-height: 100px;
+        font-size: 1.8rem;
     }
 
-    .hero-text .lead {
+    .hero-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hire-btn,
+    .project-btn {
+        padding: 12px 25px !important;
         font-size: 1rem;
     }
 
     .spline-container {
-        padding-bottom: 100%;
+        height: 300px;
     }
 }

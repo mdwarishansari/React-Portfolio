@@ -1,33 +1,206 @@
-
-body {
-    padding-top: 73px;
-    /* Adjust depending on your navbar height */
+/* Navbar - Enhanced with Blue-Purple Theme */
+.custom-navbar {
+    background-color: transparent !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 15px 0;
+    z-index: 1000;
 }
 
+.custom-navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(138, 43, 226, 0.15);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    padding: 10px 0;
+}
 
-/* Custom navbar styles */
-.hire-btn {
+/* Brand Logo */
+.brand-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    position: relative;
     transition: all 0.3s ease;
-    background-color: #0d6efd !important;
-    /* Primary color */
-    border-color: #0d6efd !important;
+    animation: logo-glow 3s ease-in-out infinite;
+}
+
+@keyframes logo-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 5px rgba(0, 114, 255, 0.3)) drop-shadow(0 0 10px rgba(138, 43, 226, 0.2));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(0, 114, 255, 0.5)) drop-shadow(0 0 20px rgba(138, 43, 226, 0.4));
+    }
+}
+
+.brand-logo i {
+    margin-right: 10px;
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.brand-logo:hover {
+    transform: translateY(-2px);
+}
+
+/* Nav Links */
+.nav-link-custom {
+    color: #b3b3b3 !important;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 10px 18px !important;
+    margin: 0 5px;
+    border-radius: 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-custom::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00c6ff, #8a2be2);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.nav-link-custom:hover::before,
+.nav-link-custom.active::before {
+    width: 70%;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
     color: white !important;
 }
 
-.hire-btn:hover {
-    background-color: #000 !important;
-    border-color: #0d6efd !important;
-    color: #0d6efd !important;
-}
-.nav-link {
-    transition: color 0.3s ease !important;
+.nav-link-custom.active {
+    background: rgba(138, 43, 226, 0.15);
 }
 
-.nav-link:hover {
-    color: #0d6efd !important;
+.nav-link-custom i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
 }
 
+.nav-link-custom:hover i {
+    transform: translateX(3px);
+}
 
-#experience {
-    scroll-margin-top: 150px;
+/* Mobile Toggle */
+.navbar-toggler {
+    border: 2px solid rgba(138, 43, 226, 0.5) !important;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28138, 43, 226, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:hover {
+    background: rgba(138, 43, 226, 0.1);
+    border-color: #8a2be2 !important;
+}
+
+/* Mobile Menu */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: linear-gradient(145deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 30, 0.98));
+        border-radius: 20px;
+        margin-top: 15px;
+        padding: 25px;
+        border: 1px solid rgba(138, 43, 226, 0.2);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-link-custom {
+        padding: 15px 20px !important;
+        margin: 5px 0;
+        border-radius: 12px;
+    }
+
+    .nav-link-custom:hover,
+    .nav-link-custom.active {
+        background: rgba(138, 43, 226, 0.15);
+    }
+
+    .nav-link-custom::before {
+        display: none;
+    }
+}
+
+/* Resume Button */
+.resume-btn {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%) !important;
+    background-size: 200% 200% !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 12px 28px !important;
+    font-weight: 700 !important;
+    color: white !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+    animation: gradient-flow 4s ease infinite;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4), 0 10px 30px rgba(138, 43, 226, 0.4);
+}
+
+.resume-btn i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.resume-btn:hover i {
+    transform: translateY(-2px);
 }

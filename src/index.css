@@ -1,0 +1,320 @@
+/* Enhanced Global CSS Variables - Blue-Purple Theme from About Section */
+:root {
+  /* Base Colors */
+  --bg-color: #0a0a0a;
+  --bg-secondary: #0d0d0d;
+  --text-main: #ffffff;
+  --text-secondary: #b3b3b3;
+
+  /* Blue-Purple Color Palette - Inspired by About Section */
+  --primary-blue: #0072ff;
+  --light-blue: #00c6ff;
+  --deep-blue: #0d6efd;
+  --primary-purple: #8a2be2;
+  --light-purple: #bc13fe;
+  --deep-purple: #4a00e0;
+  --neon-cyan: #00f3ff;
+
+  /* Gradients - Blue to Purple */
+  --gradient-primary: linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #8a2be2 100%);
+  --gradient-blue-purple: linear-gradient(135deg, #0072ff, #8a2be2);
+  --gradient-cyan-purple: linear-gradient(135deg, #00c6ff, #bc13fe);
+  --gradient-purple-blue: linear-gradient(135deg, #8a2be2, #00c6ff);
+  --gradient-button: linear-gradient(135deg, #00c6ff 0%, #0072ff 40%, #8a2be2 100%);
+
+  /* Glass Effects */
+  --glass-bg: rgba(10, 10, 10, 0.85);
+  --glass-border: rgba(138, 43, 226, 0.3);
+
+  /* Shadows */
+  --shadow-blue: 0 0 25px rgba(0, 114, 255, 0.5);
+  --shadow-purple: 0 0 25px rgba(138, 43, 226, 0.5);
+  --shadow-mixed: 0 0 30px rgba(0, 114, 255, 0.3), 0 0 30px rgba(138, 43, 226, 0.3);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Smooth Scrolling with offset for sticky navbar */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--light-purple);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--light-purple);
+  color: #000;
+}
+
+/* Enhanced Scrollbar Styling - Blue to Purple */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-blue-purple);
+  border-radius: 10px;
+  box-shadow: var(--shadow-mixed);
+  border: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-purple-blue);
+  box-shadow: var(--shadow-purple);
+}
+
+/* ============================================
+   GLOBAL GRADIENT ANIMATED BUTTON STYLES
+   ============================================ */
+
+.btn-gradient,
+.hire-btn,
+.view-resume-btn,
+.view-projects-btn,
+.project-btn,
+.btn-show-more,
+.verify-btn,
+.company-link {
+  background: var(--gradient-button) !important;
+  background-size: 200% 200% !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 14px 32px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  font-size: 1rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 8px 30px rgba(0, 114, 255, 0.3), 0 8px 30px rgba(138, 43, 226, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: gradient-flow 4s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-gradient::before,
+.hire-btn::before,
+.view-resume-btn::before,
+.view-projects-btn::before,
+.project-btn::before,
+.btn-show-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-gradient:hover::before,
+.hire-btn:hover::before,
+.view-resume-btn:hover::before,
+.view-projects-btn:hover::before,
+.project-btn:hover::before,
+.btn-show-more:hover::before {
+  left: 100%;
+}
+
+.btn-gradient:hover,
+.hire-btn:hover,
+.view-resume-btn:hover,
+.view-projects-btn:hover,
+.project-btn:hover,
+.btn-show-more:hover,
+.verify-btn:hover,
+.company-link:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(0, 114, 255, 0.5),
+    0 15px 45px rgba(138, 43, 226, 0.5),
+    0 0 40px rgba(0, 198, 255, 0.3);
+}
+
+.btn-gradient:active,
+.hire-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* Outline Button Variant */
+.btn-outline-gradient,
+.btn-outline-primary {
+  background: transparent !important;
+  border: 2px solid transparent !important;
+  border-image: var(--gradient-blue-purple) 1 !important;
+  border-radius: 50px !important;
+  padding: 14px 32px !important;
+  font-weight: 700 !important;
+  color: var(--light-blue) !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease !important;
+}
+
+.btn-outline-gradient::before,
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-button);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.btn-outline-gradient:hover::before,
+.btn-outline-primary:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-outline-gradient:hover,
+.btn-outline-primary:hover {
+  color: white !important;
+  border-color: transparent !important;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-mixed);
+}
+
+/* Global Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 25px rgba(138, 43, 226, 0.8));
+    text-shadow: 0 0 25px rgba(138, 43, 226, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes title-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 114, 255, 0.4)) drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 114, 255, 0.6)) drop-shadow(0 0 30px rgba(138, 43, 226, 0.5));
+  }
+}
+
+/* Global Section Title Styling */
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-glow 3s ease-in-out infinite;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: var(--gradient-blue-purple);
+  border-radius: 4px;
+  box-shadow: var(--shadow-mixed);
+}
+
+/* Loading Animation */
+body {
+  animation: fadeInUp 0.6s ease-out;
+}
