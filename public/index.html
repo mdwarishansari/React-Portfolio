@@ -2,14 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/DP.gif" />
+    <!-- Basic -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Warish - Portfolio" />
-    <link rel="stylesheet" href="style.css" />
     <title>Warish | Portfolio</title>
+    <meta name="description" content="Portfolio of Mohammad Warish Ansari — B.Tech CSE student & Full Stack Developer (MERN). Explore projects, internships, certifications, and contact details." />
+    <meta name="keywords" content="Mohammad Warish Ansari, Warish Ansari, portfolio, MERN, React developer, full stack developer, RKDF University, internships, projects, certifications" />
+    <meta name="author" content="Mohammad Warish Ansari" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://portfolio-warish.vercel.app/" />
+
+    <!-- Google Search Console verification (replace CONTENT with the token Google gives you) -->
+    <meta name="google-site-verification" content="efB5f4AvFWdC9T2RmyxD9gvUZg50E0vZhNM6zru73VU" />
+    <!-- Open Graph (Facebook, LinkedIn, others) -->
+    <meta property="og:title" content="Mohammad Warish Ansari — Full Stack Developer" />
+    <meta property="og:description" content="Portfolio of Mohammad Warish Ansari — B.Tech CSE student & Full Stack Developer. View projects, internships and certifications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portfolio-warish.vercel.app/" />
+    <meta property="og:site_name" content="Mohammad Warish Ansari — Portfolio" />
+    <meta property="og:image" content="https://portfolio-warish.vercel.app/dp.png" />
+    <meta property="og:image:alt" content="Mohammad Warish Ansari — profile" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mohammad Warish Ansari — Full Stack Developer" />
+    <meta name="twitter:description" content="Portfolio of Mohammad Warish Ansari — B.Tech CSE student & Full Stack Developer. Check projects, internships, and certifications." />
+    <meta name="twitter:image" content="https://portfolio-warish.vercel.app/dp.png" />
+
+    <!-- Mobile & PWA niceties -->
+    <meta name="theme-color" content="#0d6efd" />
+    <link rel="icon" href="%PUBLIC_URL%/dp.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/dp.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+
+    <!-- Preconnect & fonts (load only what you use) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Replace with the exact font you use -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/style.css" />
+
+    <!-- JSON-LD structured data (Person) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohammad Warish Ansari",
+        "url": "https://portfolio-warish.vercel.app/",
+        "image": "https://portfolio-warish.vercel.app/dp.png",
+        "jobTitle": "Full Stack Developer (MERN)",
+        "alumniOf": "RKDF University Ranchi",
+        "sameAs": [
+          "https://github.com/mdwarishansari",
+          "https://www.linkedin.com/in/md-warish-ansari"
+        ],
+        "description": "B.Tech CSE student and full stack developer specializing in MERN stack, machine learning experiments and Android development."
+      }
+    </script>
+
+    <!-- Optional: Google Analytics (GA4) - replace G-XXXXXXX with your measurement ID -->
+    <!-- Remove this block if you don't want analytics -->
+    <script>
+      /* GA4 placeholder - replace 'G-XXXXXXX' with your measurement ID */
+      (function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js', new Date()); gtag('config', 'G-XXXXXXX');})();
+    </script>
+
+    <!-- Accessibility & best-practice hint: inline critical CSS only if needed -->
+    <!-- End head -->
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- React root -->
     <div id="root"></div>
+
+    <!-- Minimal inline schema for quick checks (optional) -->
+    <!-- Consider adding a small inline script for performance monitoring later -->
+
   </body>
 </html>
