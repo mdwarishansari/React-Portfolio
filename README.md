@@ -91,15 +91,9 @@ npm start
 
 ---
 
-## 📸 Preview
-
-👉 _(Insert screenshots / GIF of your portfolio UI here)_
-
----
-
 ## 📬 Contact
 
-- **Name:** Md Warish Ansari
+- **Name:** Mohammad Warish Ansari
 - **Email:** [warishansari018@gmail.com](mailto:warishansari018@gmail.com)
 - **LinkedIn:** [MD WARISH ANSARI](https://www.linkedin.com/in/md-warish-ansari/)
 - **GitHub:** [Github](https://github.com/mdwarishansari)
